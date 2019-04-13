@@ -12,7 +12,7 @@
     <key>CFBundleExecutable</key>
     <string>${EXECUTABLE_NAME}</string>
     <key>CFBundleIdentifier</key>
-    <string>com.OldShoe.SVH4ALL</string>
+    <string>ru.old-shoe.svh4all</string>
     <key>CFBundleName</key>
     <string>SVH4ALL</string>
     <key>CFBundleDisplayName</key>

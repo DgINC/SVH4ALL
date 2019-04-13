@@ -678,7 +678,7 @@
 				INFOPLIST_FILE = Info-App.plist;
 				INFOPLIST_PREPROCESS = NO;
 				INSTALL_PATH = "$(HOME)/Applications";
-				PRODUCT_BUNDLE_IDENTIFIER = com.OldShoe.SVH4ALL;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.old-shoe.svh4all;
 				PRODUCT_NAME = "SVH4ALL";
 				USE_HEADERMAP = NO;
 			};
@@ -724,7 +724,7 @@
 				INFOPLIST_PREPROCESS = NO;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LLVM_LTO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.OldShoe.SVH4ALL;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.old-shoe.svh4all;
 				PRODUCT_NAME = "SVH4ALL";
 				USE_HEADERMAP = NO;
 			};

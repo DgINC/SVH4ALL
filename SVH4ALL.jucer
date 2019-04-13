@@ -2,7 +2,7 @@
 
 <JUCERPROJECT id="FTdvQS" name="SVH4ALL" projectType="guiapp" jucerVersion="5.4.3"
               version="0.0.1" companyName="Old Shoe" companyWebsite="https://old-shoe.ru/"
-              cppLanguageStandard="latest">
+              cppLanguageStandard="latest" bundleIdentifier="ru.old-shoe.svh4all">
   <MAINGROUP id="xFlhvv" name="SVH4ALL">
     <GROUP id="{90DDA0E5-239F-46D1-90E5-889B200FE0F5}" name="Resource">
       <FILE id="w1UCUb" name="svh-logo-x32.png" compile="0" resource="1"
