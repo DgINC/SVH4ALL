@@ -1,0 +1,5 @@
+*.cpp
+rcc_cgo_*.go
+
+deploy
+linux
