@@ -1,18 +1,14 @@
 package dsp
 
 /*
-#include <stdbool.h>
-#include "faust/gui/CInterface.h"
 #include "llvm-c-dsp.h"
 */
 import "C"
 
 import "unsafe"
 
-type llvm_dsp_factory struct{}
-type llvm_dsp struct{}
-
-type blabla C.uintptr
+type llvm_dsp_factory C.uintptr
+type llvm_dsp C.uintptr
 
 func getLibFaustVersion() string {
 	ver := C.getCLibFaustVersion()
