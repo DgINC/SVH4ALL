@@ -3,7 +3,7 @@ package faust
 import "C"
 
 import (
-	"github.com/DgINC/SVH4ALL/src/faust/faust/include/dsp"
+	"github.com/DgINC/SVH4ALL/src/faust/faust/include/faust/dsp"
 )
 
 type faustDspFactory struct {
