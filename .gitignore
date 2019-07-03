@@ -1,4 +1,5 @@
 rcc_cgo_*.go
+git-submodule.sh
 
 deploy
 linux

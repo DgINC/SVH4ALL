@@ -1,6 +1,7 @@
 package dsp
 
 /*
+#cgo pkg-config: libfaust
 #include "llvm-c-dsp.h"
 */
 import "C"
@@ -23,9 +24,15 @@ func getDSPMachineTarget() string {
 }
 
 func getDSPFactoryFromSHAKey(sha_key string) llvm_dsp_factory {
+<<<<<<< HEAD
 	cs := C.CString(sha_key)
 	defer C.free(unsafe.Pointer(cs))
 	pointr * llvm_dsp_factory = C.getCDSPFactoryFromSHAKey(cs)
+=======
+	csha_key := C.CString(sha_key)
+	defer C.free(unsafe.Pointer(csha_key))
+	pointr * llvm_dsp_factory = C.getCDSPFactoryFromSHAKey(csha_key)
+>>>>>>> b9b5913a0a6aab48643898d32a5e936994c52d2f
 	return pointr
 }
 
@@ -67,6 +74,66 @@ func createDSPFactoryFromString(name_app string, dsp_content string, argc int32,
 	return pointr
 }
 
-func deleteCDSPFactory(llvm_dsp_factory *factory) bool {
+func deleteDSPFactory(factory *llvm_dsp_factory) bool {
+	var dspbool bool = C.deleteCDSPFactory(factory)
+	return dspbool
+}
 
+func getName(factory llvm_dsp_factory) string {
+	cs := C.getCName(factory)
+	defer C.free(unsafe.Pointer(cs))
+	return C.GoString(cs)
+}
+
+func getSHAKey(factory llvm_dsp_factory) string {
+	cs := C.getCSHAKey(factory)
+	defer C.free(unsafe.Pointer(cs))
+	return C.GoString(cs)
+}
+
+func getDSPCode(factory llvm_dsp_factory) string {
+	cs := C.getCDSPCode(factory)
+	defer C.free(unsafe.Pointer(cs))
+	return C.GoString(cs)
+}
+
+func getDSPFactoryCompileOptions(factory llvm_dsp_factory) string {
+	cs := C.getCDSPFactoryCompileOptions(factory)
+	defer C.free(unsafe.Pointer(cs))
+	return C.GoString(cs)
+}
+
+func getTarget(factory llvm_dsp_factory) string {
+	cs := C.getCTarget(factory)
+	defer C.free(unsafe.Pointer(cs))
+	return C.GoString(cs)
+}
+
+func getDSPFactoryLibraryList(factory llvm_dsp_factory) string {
+	cs := C.getCDSPFactoryLibraryList(factory)
+	defer C.free(unsafe.Pointer(cs))
+	return C.GoString(cs)
+}
+
+func getDSPFactoryIncludePathnames(factory llvm_dsp_factory) string {
+	cs := C.getCDSPFactoryIncludePathnames(factory)
+	defer C.free(unsafe.Pointer(cs))
+	return C.GoString(cs)
+}
+
+func deleteAllDSPFactories() {
+	C.deleteAllCDSPFactories()
+}
+
+//const char** getAllCDSPFactories();
+
+func startGMTDSPFactories() bool {
+	ret := C.startMTDSPFactories()
+	if err != nil {
+		return nil, ret
+	}
+}
+
+func stopGMTDSPFactories() {
+	C.stopMTDSPFactories()
 }
