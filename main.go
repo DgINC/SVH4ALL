@@ -3,6 +3,7 @@ package main
 import (
 	"os"
 
+	svhapi "github.com/DgINC/SVH4ALL/api"
 	"github.com/therecipe/qt/core"
 	"github.com/therecipe/qt/gui"
 	"github.com/therecipe/qt/qml"
@@ -10,6 +11,7 @@ import (
 )
 
 func main() {
+	svhapi.InitLogger()
 	core.QCoreApplication_SetAttribute(core.Qt__AA_EnableHighDpiScaling, true)
 	gui.NewQGuiApplication(len(os.Args), os.Args)
 
