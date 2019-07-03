@@ -1,3 +1,3 @@
-[submodule "src/faust/faust/resource/libs"]
+[submodule "faustlibraries"]
     path = src/faust/faust/resource/libs
     url = https://github.com/grame-cncm/faustlibraries.git
