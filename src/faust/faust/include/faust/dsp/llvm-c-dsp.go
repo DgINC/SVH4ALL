@@ -24,15 +24,9 @@ func getDSPMachineTarget() string {
 }
 
 func getDSPFactoryFromSHAKey(sha_key string) llvm_dsp_factory {
-<<<<<<< HEAD
-	cs := C.CString(sha_key)
-	defer C.free(unsafe.Pointer(cs))
-	pointr * llvm_dsp_factory = C.getCDSPFactoryFromSHAKey(cs)
-=======
 	csha_key := C.CString(sha_key)
 	defer C.free(unsafe.Pointer(csha_key))
 	pointr * llvm_dsp_factory = C.getCDSPFactoryFromSHAKey(csha_key)
->>>>>>> b9b5913a0a6aab48643898d32a5e936994c52d2f
 	return pointr
 }
 
