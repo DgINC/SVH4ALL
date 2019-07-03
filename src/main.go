@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	svhapi "github.com/DgINC/SVH4ALL/api"
+	svhapi "github.com/DgINC/SVH4ALL/src/api"
 	"github.com/therecipe/qt/core"
 	"github.com/therecipe/qt/gui"
 	"github.com/therecipe/qt/qml"
