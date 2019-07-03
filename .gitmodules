@@ -1,3 +1,6 @@
 [submodule "faustlibraries"]
       path = src/faust/faust/resource/libs
       url = git://github.com/grame-cncm/faustlibraries.git
+[submodule "src/faust/faust/resource/libs"]
+	path = src/faust/faust/resource/libs
+	url = git://github.com/grame-cncm/faustlibraries.git
