@@ -15,7 +15,3 @@ type faustDspFactory struct {
 type fausDspFactoryList {
 	
 }
-
-func testingDDD() {
-	dsp.deleteAllDSPFactories()
-}
