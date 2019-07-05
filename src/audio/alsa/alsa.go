@@ -7,11 +7,16 @@ import (
 	"github.com/yobert/alsa"
 )
 
+var (
+	record_device   *alsa.Device
+	playback_device *alsa.Device
+)
+
 func getPlaybackDevices() ([]*alsa.Card, error) {
 	cards, err := alsa.OpenCards()
 	defer alsa.CloseCards(cards)
 	if err != nil {
-		svhapi.Logger.Info("logger construction succeeded")
+		svhapi.APILogger.Info("logger construction succeeded")
 		fmt.Println(err)
 		return nil, err
 	}

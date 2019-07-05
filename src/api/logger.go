@@ -32,11 +32,11 @@ func InitLogger() {
 	if err := json.Unmarshal(rawJSON, &cfg); err != nil {
 		panic(err)
 	}
-	Logger, err := cfg.Build()
+	APILogger, err := cfg.Build()
 	if err != nil {
 		panic(err)
 	}
-	defer logger.Sync()
+	defer APILogger.Sync()
 
-	logger.Info("logger construction succeeded")
+	APILogger.Info("logger construction succeeded")
 }
