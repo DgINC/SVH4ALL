@@ -10,7 +10,7 @@ import (
 var ApiLogger *zap.Logger
 
 //InitLogger is a initial logger for the program
-func InitLogger() {
+func init() {
 	// For some users, the presets offered by the NewProduction, NewDevelopment,
 	// and NewExample constructors won't be appropriate. For most of those
 	// users, the bundled Config struct offers the right balance of flexibility
