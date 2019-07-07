@@ -6,8 +6,8 @@ import (
 	"go.uber.org/zap"
 )
 
-// APILogger is a man logger
-var APILogger *zap.Logger
+// ApiLogger is a man logger
+var ApiLogger *zap.Logger
 
 //InitLogger is a initial logger for the program
 func InitLogger() {
@@ -36,10 +36,10 @@ func InitLogger() {
 	if err := json.Unmarshal(rawJSON, &cfg); err != nil {
 		panic(err)
 	}
-	APILogger, err := cfg.Build()
-	defer APILogger.Sync()
+	ApiLogger, err := cfg.Build()
+	defer ApiLogger.Sync()
 	if err != nil {
 		panic(err)
 	}
-	APILogger.Info("logger construction succeeded")
+	ApiLogger.Info("logger construction succeeded")
 }

@@ -16,14 +16,14 @@ func getPlaybackDevices() ([]*alsa.Device, error) {
 	cards, err := alsa.OpenCards()
 	defer alsa.CloseCards(cards)
 	if err != nil {
-		svhapi.APILogger.Error("ALSA not found error: ", err)
+		svhapi.ApiLogger.Error("ALSA not found error: ", err)
 		return nil, err
 	}
 
 	for _, card := range cards {
 		devices, err := card.Devices()
 		if err != nil {
-			svhapi.APILogger.Error("Devices not found error: ", err)
+			svhapi.ApiLogger.Error("Devices not found error: ", err)
 			return nil, err
 		}
 		for _, device := range devices {
@@ -35,4 +35,5 @@ func getPlaybackDevices() ([]*alsa.Device, error) {
 			}
 		}
 	}
+	return nil, playback_devices
 }
