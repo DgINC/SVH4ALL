@@ -4,6 +4,7 @@ import "fmt"
 
 var verAPI = "0.0.1"
 
-func printVerAPI() string {
+//PrintVer -- printing version API
+func PrintVer() string {
 	return fmt.Sprintf("Version: %s", verAPI)
 }
