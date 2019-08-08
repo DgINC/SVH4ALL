@@ -12,18 +12,22 @@ var (
 	playback_devices []*alsa.Device
 )
 
-func getPlaybackDevices() ([]*alsa.Device, error) {
+type Sink struct {
+	alsaPlaybackDevice *alsa.Device
+}
+
+func getPlaybackDevices() (playback_devices []*alsa.Device, err error) {
 	cards, err := alsa.OpenCards()
 	defer alsa.CloseCards(cards)
 	if err != nil {
-		api.ApiLogger.Error("ALSA not found error: ", err)
+		api.ApiLogger.Error("ALSA not found")
 		return nil, err
 	}
 
 	for _, card := range cards {
 		devices, err := card.Devices()
 		if err != nil {
-			api.ApiLogger.Error("Devices not found error: ", err)
+			api.ApiLogger.Error("Devices not found")
 			return nil, err
 		}
 		for _, device := range devices {
@@ -31,9 +35,32 @@ func getPlaybackDevices() ([]*alsa.Device, error) {
 				continue
 			}
 			if device.Play && playback_device != nil {
-				playback_devices = append(playback_device, device)
+				playback_devices = append(playback_devices, device)
 			}
 		}
 	}
-	return nil, playback_devices
+	return playback_devices, nil
+}
+
+func NewSink() *Sink {
+	return &Sink{}
+}
+
+func (s *Sink) Sink(sourceID string, sampleRate, numChannels, bufferSize int) (func([][]float64) error, error) {
+
+}
+
+func (s *Sink) Flush(string) error {
+	if s.stream == nil {
+		return nil
+	}
+	err := s.stream.Stop()
+	if err != nil {
+		return err
+	}
+	err = s.stream.Close()
+	if err != nil {
+		return err
+	}
+	return portaudio.Terminate()
 }
